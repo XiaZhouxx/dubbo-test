@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: customer-service
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 118756
+    url: jdbc:mysql://47.107.246.54:3306/seata?characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+dubbo:
+  application:
+    name: customer-service
+  protocol:
+    name: dubbo
+    port: 20881
+  registry:
+    address: nacos://47.107.246.54:8848
+  consumer:
+    timeout: 2000
+seata:
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 47.107.246.54:8848
+      group : "SEATA"
+      namespace: "68f6de12-6c7e-4dbe-8352-e47b061df850"
+      username: ""
+      password: ""
+  config:
+    type: nacos
+    nacos:
+      server-addr: 47.107.246.54:8848
+      group: "SEATA"
+  tx-service-group: my_test_tx_group
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
