@@ -1,6 +1,12 @@
 spring:
   application:
     name: provider-service
+  ## sentinel 配置连接控制台
+  cloud:
+    sentinel:
+      transport:
+        port: 8721
+        dashboard: 47.107.246.54:8989 # 注意这里需要和控制台通信，远程和本地无法通信， 本地可以通知远程
   main:
     allow-bean-definition-overriding: true
   datasource:

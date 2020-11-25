@@ -1,4 +1,10 @@
 spring:
+  ## sentinel 配置连接控制台
+  cloud:
+    sentinel:
+      transport:
+        port: 8720
+        dashboard: 47.107.246.54:8989
   application:
     name: customer-service
   main:
@@ -36,3 +42,5 @@ seata:
   tx-service-group: my_test_tx_group
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+server:
+  port: 8888
