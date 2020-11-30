@@ -1,6 +1,5 @@
 package com.xz.provider.service.impl;
 
-import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.xz.api.domain.Member;
 import com.xz.api.service.MemberOrderService;
 import com.xz.api.service.MemberService;
@@ -29,7 +28,6 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     @GlobalTransactional
-    @SentinelResource
     public void reduceBalance(Member member) {
         // 本地事务
         memberMapper.insert(member);

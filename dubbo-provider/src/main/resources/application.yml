@@ -14,6 +14,7 @@ spring:
     username: root
     password: 118756
     url: jdbc:mysql://47.107.246.54:3306/seata?characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+## dubbo 配置
 dubbo:
   application:
     name: provider-service
@@ -24,6 +25,9 @@ dubbo:
     address: nacos://47.107.246.54:8848
   consumer:
     timeout: 2000
+    ## 关闭消费检测, 开启时生产者未启动会导致保存
+    check: false
+## seata 分布式事务配置
 seata:
   registry:
     type: nacos
@@ -39,6 +43,7 @@ seata:
     nacos:
       server-addr: 47.107.246.54:8848
       group: "SEATA"
+  ## 事务组， 根据值 从配置中心中拉取 注册中心中 TC 集群对应的IP集
   tx-service-group: my_test_tx_group
 mybatis:
   mapper-locations: classpath:mapper/*.xml
